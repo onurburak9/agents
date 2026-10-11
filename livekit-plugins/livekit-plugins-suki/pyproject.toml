@@ -1,0 +1,54 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "livekit-plugins-suki"
+dynamic = ["version"]
+description = "LiveKit Agents plugin for Suki Dictation speech-to-text"
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.10"
+authors = [{ name = "LiveKit", email = "hello@livekit.io" }]
+keywords = [
+    "webrtc",
+    "realtime",
+    "audio",
+    "livekit",
+    "livekit-agents",
+    "suki",
+    "medical",
+    "dictation",
+    "stt",
+    "speech-to-text",
+    "streaming",
+    "websocket",
+]
+classifiers = [
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Topic :: Multimedia :: Sound/Audio",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3 :: Only",
+]
+dependencies = ["livekit-agents>=1.8.5", "aiohttp", "numpy>=1.26.0"]
+
+[project.urls]
+Documentation = "https://docs.livekit.io"
+Website = "https://www.suki.ai"
+Source = "https://github.com/livekit/agents"
+
+[tool.hatch.version]
+path = "livekit/plugins/suki/version.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["livekit"]
+
+[tool.hatch.build.targets.sdist]
+include = ["/livekit"]
+
+[tool.uv]
+exclude-newer = "7 days"
+exclude-newer-package = { livekit-agents = "0 days" }
